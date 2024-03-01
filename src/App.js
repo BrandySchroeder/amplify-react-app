@@ -1,7 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import { API } from 'aws-amplify';
+import { get } from 'aws-amplify/api';
 
 import './App.css';
 
@@ -10,9 +9,16 @@ const App = () => {
   const [coins, updateCoins] = useState([]);
 
   // Define function to all API
-  async function fetchCoins() {
-    const data = await API.get('cryptoapi', '/coins')
-    updateCoins(data.coins)
+  const fetchCoins = async() => {
+    //Get request with latest Amplify
+    const restOperation = await get({
+    apiName: "cryptoapi",
+    path: "/coins"
+    });
+    // Source: https://docs.amplify.aws/react/build-a-backend/restapi/fetch-data/#accessing-response-payload
+    const { body } = await restOperation.response;
+    const json = await body.json();
+    updateCoins(json.coins);
   }
 
   // Call fetchCoins function when component loads

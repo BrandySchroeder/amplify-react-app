@@ -4,8 +4,10 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Amplify } from 'aws-amplify';
-import config from './aws-exports';
-Amplify.configure(config);
+// There is a change to the config too
+// https://docs.amplify.aws/angular/build-a-backend/troubleshooting/migrate-from-javascript-v5-to-v6/#step-3-upgrade-amplify-cli-version-and-configuration-file
+import amplifyconfig from './amplifyconfiguration.json';
+Amplify.configure(amplifyconfig);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
