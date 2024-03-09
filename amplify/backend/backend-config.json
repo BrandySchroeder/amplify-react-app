@@ -1,5 +1,19 @@
 {
   "api": {
+    "borndate": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "cryptofunction"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    },
     "cryptoapi": {
       "dependsOn": [
         {

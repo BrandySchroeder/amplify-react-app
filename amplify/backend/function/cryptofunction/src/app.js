@@ -48,6 +48,14 @@ app.get('/coins', function(req, res) {
     .catch(err => res.json({ error: err }))
 })
 
+app.get('/born', function(req, res) {
+  const born = [
+
+  ]
+  res.json({
+    born
+  })
+})
 /**********************
  * Example get method *
  **********************/

@@ -23,24 +23,25 @@ const App = () => {
   const fetchCoins = async() => {
     updateLoading(true);
     const { limit, start } = input;
-    //Get request with latest Amplify
-    const restOperation = await get({
-    apiName: "cryptoapi",
-    path: "/coins",
-    options: { // https://docs.amplify.aws/react/build-a-backend/restapi/fetch-data/#accessing-query-parameters--body-in-lambda-proxy-function
-      queryParams: {
-        limit: limit,
-        start: start
-      }
-    }
-    });
 
-    // Source: https://docs.amplify.aws/react/build-a-backend/restapi/fetch-data/#accessing-response-payload
-    const { body } = await restOperation.response;
-    const json = await body.json();
-    updateCoins(json.coins);
-    updateLoading(false);
+  //Get request with latest Amplify
+  const restOperation = await get({
+  apiName: "cryptoapi",
+  path: "/coins",
+  options: { // https://docs.amplify.aws/react/build-a-backend/restapi/fetch-data/#accessing-query-parameters--body-in-lambda-proxy-function
+    queryParams: {
+      limit: limit,
+      start: start
+    }
   }
+  });
+
+  // Source: https://docs.amplify.aws/react/build-a-backend/restapi/fetch-data/#accessing-response-payload
+  const { body } = await restOperation.response;
+  const json = await body.json();
+  updateCoins(json.coins);
+  updateLoading(false);
+}
 
   // Call fetchCoins function when component loads
   useEffect(() => {
