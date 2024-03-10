@@ -6,9 +6,6 @@ or in the "license" file accompanying this file. This file is distributed on an 
 See the License for the specific language governing permissions and limitations under the License.
 */
 
-
-
-
 const express = require('express')
 const bodyParser = require('body-parser')
 const awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
@@ -48,14 +45,18 @@ app.get('/coins', function(req, res) {
     .catch(err => res.json({ error: err }))
 })
 
+//creating the borndate route
 app.get('/born', function(req, res) {
-  const born = [
+  let apiUrl = `https://api.github.com/users/BrandySchroeder`
 
-  ]
-  res.json({
-    born
-  })
+  // Call API and return response
+  axios.get(apiUrl)
+    .then(response => {
+      res.json({  born: response.data.data })
+    })
+    .catch(err => res.json({ error: err }))
 })
+
 /**********************
  * Example get method *
  **********************/

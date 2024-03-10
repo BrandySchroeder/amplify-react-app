@@ -48,6 +48,33 @@ const App = () => {
     fetchCoins()
   }, [])
 
+
+
+  // NEW SECTION to Create born variable and set to empty array
+  const [born, updateBorn] = useState([]);
+
+  // Define function to all API
+  const fetchBorn = async() => {
+    updateLoading(true);
+
+  //Get request with latest Amplify
+  const restOperation = await get({
+  apiName: "borndate",
+  path: "/born",
+  });
+
+  // Source: https://docs.amplify.aws/react/build-a-backend/restapi/fetch-data/#accessing-response-payload
+  const { body } = await restOperation.response;
+  const json = await body.json();
+  updateBorn(json.born);
+  updateLoading(false);
+}
+
+  // Call fetchBorn function when component loads
+  useEffect(() => {
+    fetchBorn()
+  }, [])
+
   return (
     <div className="App">
       <input
@@ -67,7 +94,8 @@ const App = () => {
             <h5>${coin.price_usd}</h5>
           </div>
         ))
-      }
+      }        
+        <p onLoad={fetchBorn}>{born}</p>
     </div>
   );
 }
