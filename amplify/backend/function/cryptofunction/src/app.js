@@ -45,7 +45,7 @@ app.get('/coins', function(req, res) {
     .catch(err => res.json({ error: err }))
 })
 
-//creating the borndate route
+//creating the born route
 app.get('/born', function(req, res) {
   let apiUrl = `https://api.github.com/users/BrandySchroeder`
 

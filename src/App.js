@@ -53,9 +53,13 @@ const App = () => {
   // NEW SECTION to Create born variable and set to empty array
   const [born, updateBorn] = useState([]);
 
+  console.log(updateBorn);
+
   // Define function to all API
   const fetchBorn = async() => {
     updateLoading(true);
+
+    console.log(fetchBorn);
 
   //Get request with latest Amplify
   const restOperation = await get({
