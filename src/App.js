@@ -8,6 +8,7 @@ import './App.css';
 const App = () => {
   // Create coins variable and set to empty array
   const [coins, updateCoins] = useState([]);
+  const [born, updateBorn] = useState(['']);
 
   // Create additional state to hold user input for limit and start properties
   const [input, updateInput] = useState({ limit: 5, start: 0 });
@@ -63,10 +64,16 @@ const App = () => {
       {loading && <h2>Loading...</h2>}
       {
         !loading && coins.map((coin, index) => (
-          <><div key={index}>
+          <>
+          <div key={index}>
             <h2>{coin.name} - {coin.symbol}</h2>
             <h5>${coin.price_usd}</h5>
-          </div><p>{GithubBornOn}</p></>
+          </div>
+          <div key={born}>
+            <p>{born.created_at}</p>
+          </div>
+          </>
+          
         ))
       }        
     </div>

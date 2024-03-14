@@ -6,7 +6,7 @@ import './App.css';
 
 export const GithubBornOn = () => {
     // NEW SECTION to Create born variable and set to empty array
-  const [born, updateBorn] = useState([]);
+  const [born, updateBorn] = useState(['']);
 
   // Define function to all API
   const fetchBorn = async() => {
