@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import { get } from 'aws-amplify/api';
+import GithubBornOn from './GithubBornOn';
 
 import './App.css';
 
@@ -62,14 +63,14 @@ const App = () => {
       {loading && <h2>Loading...</h2>}
       {
         !loading && coins.map((coin, index) => (
-          <div key={index}>
+          <><div key={index}>
             <h2>{coin.name} - {coin.symbol}</h2>
             <h5>${coin.price_usd}</h5>
-          </div>
+          </div><p>{GithubBornOn}</p></>
         ))
       }        
     </div>
   );
 }
 
-export default App
+export default App;
