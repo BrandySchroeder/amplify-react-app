@@ -69,6 +69,7 @@ const App = () => {
             <h2>{coin.name} - {coin.symbol}</h2>
             <h5>${coin.price_usd}</h5>
           </div>
+
           <div key={born}>
             <p>{born.created_at}</p>
           </div>
