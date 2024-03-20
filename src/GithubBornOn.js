@@ -30,6 +30,6 @@ console.log(GithubBornOn);
   }, [])
 
   return (
-    <p /*onLoad={fetchBorn}*/>Brandy Schroeder's github was born on {born.created_at}</p>
+    <p /*onLoad={fetchBorn}*/>The Github user BrandySchroeder was born on {born.created_at}</p>
   );
 }
