@@ -68,15 +68,16 @@ const App = () => {
             <h2>{coin.name} - {coin.symbol}</h2>
             <h5>${coin.price_usd}</h5>
           </div>
-          
-          <div>
-          <GithubBornOn/>
-          </div>
-          </>         
-        ))
-      }        
-    </div>
+          </>
+          ))
+      }
+          <h3>
+            <GithubBornOn/>
+          </h3>
+      </div>
+    
   );
+       
 }
 
 export default App;
