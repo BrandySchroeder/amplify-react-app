@@ -1,11 +1,12 @@
 import './App.css';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { get } from 'aws-amplify/api';
 
-import './App.css';
 
+// NEW SECTION to Create born variable and set to empty array
 export const GithubBornOn = () => {
-    // NEW SECTION to Create born variable and set to empty array
+console.log(GithubBornOn);
+
   const [born, updateBorn] = useState(['']);
 
   // Define function to all API
@@ -23,16 +24,12 @@ export const GithubBornOn = () => {
   updateBorn(json.born);
 }
 
-  // Call fetchBorn function when component loads
+// Call fetchBorn function when component loads
   useEffect(() => {
     fetchBorn()
   }, [])
 
   return (
-    <div className="App">
-        <p onLoad={fetchBorn}>my github name goes here - my github created at goes here{born.created_at}</p>
-    </div>
+    <p /*onLoad={fetchBorn}*/>Brandy Schroeder's github was born on {born.created_at}</p>
   );
 }
-
-export default GithubBornOn;
